@@ -4,12 +4,6 @@ function createGrid(size) {
 
     const boxsize = 500 / size;
 
-
-    // grid solution by https://stackoverflow.com/questions/57550082/creating-a-16x16-grid-using-javascript
-    // gridDiv.style.setProperty('--grid-rows', size);
-    // gridDiv.style.setProperty('--grid-cols', size);  
-
-
     for (let i = 0; i < size * size; i++) {
         const gridSquare = document.createElement("div");
         gridSquare.classList.add("grid-square");
@@ -20,3 +14,15 @@ function createGrid(size) {
 }
 
 createGrid(16);
+
+const gridSquares = document.querySelectorAll(".grid-square");
+
+gridSquares.forEach (square => {
+    square.addEventListener("mouseover", () => square.style.backgroundColor = "red")
+})
+
+
+
+
+
+
