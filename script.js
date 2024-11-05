@@ -1,15 +1,17 @@
-function createGrid(gridWidth, gridHeight) {
+function createGrid(size) {
 
     const gridDiv = document.querySelector(".grid");
 
-    for (let i = 0; i < gridWidth; i++) {
-        for (let j = 0; j < gridHeight; j++) {
+    // grid solution by https://stackoverflow.com/questions/57550082/creating-a-16x16-grid-using-javascript
+    gridDiv.style.setProperty('--grid-rows', size);
+    gridDiv.style.setProperty('--grid-cols', size);  
 
-            const gridSquare = document.createElement("div");
-            gridSquare.classList.add("grid-square");
-            gridDiv.appendChild(gridSquare);
-        }
+
+    for (let i = 0; i < size * size; i++) {
+        const gridSquare = document.createElement("div");
+        gridSquare.classList.add("grid-square");
+        gridDiv.appendChild(gridSquare);    
     }
 }
 
-createGrid(16,16);
+createGrid(16);
