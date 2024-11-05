@@ -17,13 +17,18 @@ function createGrid(size) {
         gridDiv.appendChild(gridSquare);    
     }
 }
+// rgb random color generator, source: https://stackoverflow.com/questions/23095637/how-do-you-get-random-rgb-in-javascript
+function random_rgba() {
+    var o = Math.round, r = Math.random, s = 255;
+    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+}
 
 function selectSquares() {
     const gridSquares = document.querySelectorAll(".grid-square");
 
     gridSquares.forEach (square => {
     square.addEventListener("mouseover", () => {
-        square.style.backgroundColor = "red"
+        square.style.backgroundColor = random_rgba();
     });
 })
 }
