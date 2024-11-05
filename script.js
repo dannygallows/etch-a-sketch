@@ -37,9 +37,10 @@ createGrid(DEFAULT_GRID_SIZE);
 selectSquares();
 
 const newGridButton = document.querySelector("#new-grid");
+let userInput = 0;
 
 newGridButton.addEventListener("click", () => {
-    const userInput = parseInt(prompt("Enter grid size between 1-100"));
+    userInput = parseInt(prompt("Enter grid size between 1-100"));
     if (!Number.isInteger(userInput) || userInput < 1 || userInput > 100) {
         alert("Incorrect value. For the sake of this site's health and my sanity, please reconsider your choice to an integer between 1-100.");
         return;
@@ -51,7 +52,7 @@ newGridButton.addEventListener("click", () => {
 const resetGridButton = document.querySelector("#reset-grid");
 
 resetGridButton.addEventListener("click", () => {
-    createGrid(16);
+    userInput ? createGrid(userInput) : createGrid(16);
     selectSquares();
 });
 
